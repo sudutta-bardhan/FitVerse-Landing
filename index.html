@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitVerse – AI Fashion Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    nav {
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      color: #9333ea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .hero {
+      background: linear-gradient(270deg, #d946ef, #9333ea, #f59e0b);
+      background-size: 600% 600%;
+      animation: gradientMove 10s ease infinite;
+      color: white;
+      padding: 5rem 2rem;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-family: 'Italiana', serif;
+      font-style: italic;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #fbbf24;
+      color: #000;
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #f59e0b;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.4s; }
+    section:nth-of-type(4) { animation-delay: 0.6s; }
+    section:nth-of-type(5) { animation-delay: 0.8s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .features {
+      background: #f3f4f6;
+      padding: 4rem 2rem;
+    }
+
+    .features h2 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .why-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .why-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .why-card i {
+      font-size: 2rem;
+      color: #9333ea;
+      margin-bottom: 1rem;
+    }
+
+    .gallery {
+      padding: 3rem 2rem;
+      background: #fff;
+    }
+
+    .gallery h2 {
+      margin-bottom: 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .brand-slider {
+      background: #f3f4f6;
+      padding: 3rem 2rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .brand-track {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      animation: slideLogos 20s linear infinite;
+    }
+
+    .brand-track img {
+      height: 50px;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .brand-track img:hover {
+      filter: grayscale(0%);
+    }
+
+    @keyframes slideLogos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .contact {
+      padding: 4rem 2rem;
+      background: #fff;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact label {
+      margin-top: 1rem;
+      font-weight: 500;
+      width: 100%;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .contact input,
+    .contact button {
+      padding: 1rem;
+      width: 100%;
+      max-width: 400px;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .thank-you {
+      display: none;
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #f0fdf4;
+      color: #166534;
+    }
+
+    #thank-you:target {
+      display: block;
+    }
+
+    footer {
+      background: #111827;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    footer a {
+      color: #a78bfa;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .brand-track {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>FitVerse</h1>
+      <p>AI Meets Fashion – Your Personalized Styling Universe</p>
+      <a href="#contact" class="cta-button">Join the Waitlist</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#brands">Brands</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="features" class="features">
+    <h2>Why FitVerse?</h2>
+    <div class="why-cards">
+      <div class="why-card"><i>🧠</i><h3>Smart AI Styling</h3><p>AI understands your mood, body type, and preferences to recommend perfect outfits.</p></div>
+      <div class="why-card"><i>📏</i><h3>Perfect Fit Guarantee</h3><p>Say goodbye to size confusion — FitVerse finds clothes that truly fit.</p></div>
+      <div class="why-card"><i>🌍</i><h3>Global Trend Sync</h3><p>Stay fashion-forward with picks inspired by global street style.</p></div>
+      <div class="why-card"><i>🛍️</i><h3>Unified Wardrobe</h3><p>Manage your wardrobe and plan outfits across brands seamlessly.</p></div>
+      <div class="why-card"><i>⚡</i><h3>Instant Looks</h3><p>Generate complete looks for any occasion in seconds.</p></div>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <h2>Discover the Looks</h2>
+    <div class="gallery-grid">
+      <img src="Gallery/Fashion1.jpg" alt="Fashion 1">
+      <img src="Gallery/Fashion2.jpg" alt="Fashion 2">
+      <img src="Gallery/Fashion3.jpg" alt="Fashion 3">
+      <img src="Gallery/Fashion4.jpg" alt="Fashion 4">
+      <img src="Gallery/Fashion5.jpg" alt="Fashion 5">
+    </div>
+  </section>
+
+  <section id="brands" class="brand-slider">
+    <h2>Trusted By Brands</h2>
+    <div class="brand-track">
+      <img src="Brands/Nike.jpg" alt="Nike">
+      <img src="Brands/Zara.jpg" alt="Zara">
+      <img src="Brands/Gucci.jpg" alt="Gucci">
+      <img src="Brands/H&M.jpg" alt="H&M">
+      <img src="Brands/Forever21.jpg" alt="Forever21">
+      <img src="Brands/AllenSolly.png" alt="AllenSolly">
+      <img src="Brands/Chanel.jpg" alt="Chanel">
+      <img src="Brands/Levi's.jpg" alt="Levi's">
+      <img src="Brands/CK.png" alt="CalvinKlein">
+      <img src="Brands/LouisPhilippe.png" alt="LouisPhilippe">
+    </div>
+  </section>
+
+  <section id="contact" class="contact container">
+    <h2>Join the Waitlist</h2>
+    <form action="#thank-you">
+      <label for="name">Name</label>
+      <input id="name" type="text" placeholder="Your Name" required>
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Your Email" required>
+      <button type="submit" class="cta-button">Submit</button>
+    </form>
+  </section>
+
+  <section id="thank-you" class="thank-you">
+    <h2>Thanks for joining the waitlist!</h2>
+    <p>We’ll notify you when FitVerse launches. Stay stylish! ✨</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 FitVerse, All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a></p>
+    <p><a href="#">Instagram</a> |
+    <a href="#">Facebook</a> |
+    <a href="#">Twitter</a></p>
+  </footer>
+
+</body>
+</html>
