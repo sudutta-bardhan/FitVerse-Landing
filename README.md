@@ -16,6 +16,3 @@ A concept landing page showcasing an AI-powered fashion styling experience. Buil
 
 ## 🚀 Live Demo
 [View Site](https://sudutta-bardhan.github.io/FitVerse-Landing/)
-
-## 👤 Author
-Sudutta Bardhan – [www.linkedin.com/in/sudutta-bardhan-0bb87a28b](#)
